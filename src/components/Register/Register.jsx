@@ -1,6 +1,11 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { IoEye } from "react-icons/io5";
+import { IoEyeOff } from "react-icons/io5";
 
 const Register = () => {
+    const [showPassword, setShowPassword] = useState(false)
+
     return (
         <div>
             <div className="min-h-screen bg-orange-100 rounded-2xl items-center mt-10">
@@ -22,11 +27,16 @@ const Register = () => {
                     </label>
                     <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                     </div>
-                    <div className="form-control">
+                    <div className="relative form-control">
                     <label className="label">
                         <span className="label-text font-bold">Password</span>
                     </label>
-                    <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                    <input name="password" placeholder="password" type={showPassword ? "text" : "password"}  className="input input-bordered" required />
+                    <span className="absolute top-12 right-5" onClick={()=>setShowPassword(!showPassword)}>
+                            {
+                                showPassword ? <IoEyeOff /> : <IoEye />
+                            }
+                            </span>
                     </div>
                     <div className="form-control">
                     <label className="label">
