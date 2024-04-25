@@ -20,7 +20,7 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                    <h2 className="text-3xl font-bold text-orange-500">Journey Juncture</h2>
+                    <h2 className="text-3xl font-bold text-orange-500">Journey <span className="text-black">Juncture</span></h2>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -34,7 +34,10 @@ const Navbar = () => {
                             </div>
                 </label>
                     <Link to="/login">
-                    <button className="btn">Login</button>
+                    <button className="btn bg-orange-400 ml-2">Login</button>
+                    </Link>
+                    <Link to="/register">
+                    <button className="btn bg-orange-400 ml-2">Register</button>
                     </Link>
             </div>
         </div>
