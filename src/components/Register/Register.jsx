@@ -5,10 +5,11 @@ import { IoEyeOff } from "react-icons/io5";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../../providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext)
+    const {createUser, setUser} = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false)
 
     const navigate = useNavigate()
@@ -37,6 +38,27 @@ const Register = () => {
             const result = await createUser(email, password);
             const user = result.user;
             console.log(user);
+            await updateProfile(user, {
+                displayName: name,
+                photoURL: photo
+            });
+            
+            setUser({
+                ...user,
+                displayName: name,
+                photoURL: photo
+            });
+            fetch('http://localhost:3000/user', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+            })
+            .then(res=>res.json)
+            .then(data=>{
+            console.log(data)
+        })
             toast.success('User created successfully');
             setTimeout(() => {
                 navigate('/');
