@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Mylist = () => {
@@ -9,17 +9,17 @@ const Mylist = () => {
 
     const filteredAddSpot = userAddedSpot.filter(item => item.email === loggedInUserEmail);
 
-    // const {touristSpotName, countryName, location, shortDescription, averageCost, seasonality, travelTime, totalVisitorPerYear, photo} = filteredAddSpot[0]
+    // const {_id, touristSpotName, countryName, location, shortDescription, averageCost, seasonality, travelTime, totalVisitorPerYear, photo} = userAddedSpot
 
 
     return (
                 <div className="mt-20">
                     <h1 className="text-4xl font-bold text-center text-orange-500 mb-10">My <span className="text-black">List</span></h1>
-                    <div className="overflow-x-auto border border-orange-300 rounded-2xl p-10 shadow-2xl">
-                    <table className="table text-center w-3/4 mx-auto">
+                    <div className="overflow-x-auto border border-orange-300 rounded-2xl p-1 md:p-5 lg:p-10 shadow-2xl">
+                    <table className="table text-left lg:text-center w-full lg:w-3/4 mx-auto">
                         {/* head */}
                         <thead>
-                        <tr className="text-xl text-orange-500">
+                        <tr className="text-[18px] md:text-xl lg:text-xl text-orange-500">
                             <th>Spot Name</th>
                             <th>Country</th>
                             <th>Average Cost</th>
@@ -31,8 +31,10 @@ const Mylist = () => {
                             <td>{spot.touristSpotName}</td>
                             <td>{spot.countryName}</td>
                             <td>{spot.averageCost}</td>
-                            <button className="btn bg-orange-400 text-white mr-3">Update</button>
-                            <button className="btn bg-red-500 text-white">Delete</button>
+                            <div className="flex flex-col md:flex-row lg:flex-row gap-2">
+                            <Link to={`updateTouristSpot/${spot._id}`}><button className="btn bg-orange-400 text-white">Update</button></Link>
+                            <Link><button className="btn bg-red-500 text-white">Delete</button></Link>
+                            </div>
                         </tr>
                         ))}
                         </tbody>
