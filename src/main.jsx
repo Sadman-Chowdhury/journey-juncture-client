@@ -15,11 +15,13 @@ import AuthProvider from './providers/AuthProvider';
 import PrivateRoute from './components/routes/PrivateRoute';
 import Mylist from './components/MyList/Mylist';
 import UpdateTouristSpot from './components/UpdateTouristSpot/UpdateTouristSpot';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children:[
       {
         path: "/",
