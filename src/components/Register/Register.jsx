@@ -1,20 +1,62 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from "../../providers/AuthProvider";
+
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false)
+
+    const navigate = useNavigate()
+
+    const handleRegister = async (e) => {
+        e.preventDefault()
+        const form = new FormData(e.currentTarget)
+        const name = form.get('name')
+        const photo = form.get('photo')
+        const email = form.get('email')
+        const password = form.get('password')
+
+        //password error
+        if(password.length<6){
+            toast.error('Password should be atleast 6 characters')
+            return
+        }else if(!/[A-Z]/.test(password)){
+            toast.error('Password should have atleast one Uppercase')
+            return
+        }else if(!/[a-z]/.test(password)){
+            toast.error('Password should have atleast one Lowercase')
+            return
+        }
+
+        try {
+            const result = await createUser(email, password);
+            const user = result.user;
+            console.log(user);
+            toast.success('User created successfully');
+            setTimeout(() => {
+                navigate('/');
+            }, 1500);
+        } catch (error) {
+            console.error(error);
+            toast.error('Error creating user');
+        }
+    }
 
     return (
         <div>
+            <ToastContainer/>
             <div className="min-h-screen bg-orange-100 rounded-2xl items-center mt-10">
             <div className="hero-content flex flex-col mx-auto pt-20 space-y-5">
                 <div className="text-center">
                 <h1 className="text-5xl font-bold"><span className="text-orange-500">Register</span> now!</h1>
                 </div>
                 <div className="card w-3/4 shadow-2xl bg-base-100">
-                <form className="card-body">
+                <form onSubmit={handleRegister} className="card-body">
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text font-bold">Name</span>
