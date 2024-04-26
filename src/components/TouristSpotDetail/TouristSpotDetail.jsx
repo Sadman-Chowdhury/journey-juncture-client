@@ -7,7 +7,7 @@ const TouristSpotDetail = () => {
 
 
     return (
-        <div className="space-y-10 mt-16 mb-16">
+        <div className="space-y-10 mt-16 mb-10">
             <div className="flex flex-col lg:flex-row gap-10 p-14 rounded-2xl shadow-2xl">
                 <div className="w-full lg:w-3/5 rounded-2xl shadow-2xl">
                     <img className="w-full h-full rounded-2xl shadow-2xl" src={photo} alt="" />
