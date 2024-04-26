@@ -1,6 +1,6 @@
-import { useLoaderData } from "react-router-dom";
-import { IoLocationSharp } from "react-icons/io5";
+import { Link, useLoaderData } from "react-router-dom";
 import './Home.css'
+import TouristSpot from "../TouristSpot/TouristSpot";
 
 const Home = () => {
 
@@ -59,20 +59,7 @@ const Home = () => {
             <h1 className="text-5xl font-bold text-orange-500 text-center mt-20 mb-10">Tourist <span className="text-black">Spots</span></h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {
-                    loadedTouristSpot.map(touristSpot=><div key={touristSpot._id} style={{ backgroundImage: `url(${touristSpot.photo})` }} className="bg-image h-[300px] md:h-[350px] lg:h-[400px] rounded-2xl flex place-items-end justify-center">
-                        <div className= "py-3 w-3/4">
-                            <div className="p-2 bg-white rounded-2xl flex justify-between gap-5">
-                            <div className="space-y-3">
-                                <h1 className="font-bold text-[18px] text-orange-500">{touristSpot.touristSpotName}</h1>
-                                <div className="flex text-gray-500">
-                                    <IoLocationSharp className="text-2xl"/>
-                                    <p className="">{touristSpot.location}</p>
-                                </div>
-                            </div>
-                            <button className="bg-orange-400 font-semibold text-sm px-2 rounded-2xl text-white">View Details</button>
-                            </div>
-                        </div>
-                    </div>)
+                    loadedTouristSpot.map(touristSpot=><TouristSpot key={touristSpot._id} touristSpot={touristSpot}></TouristSpot>)
                 }
             </div>
         </div>

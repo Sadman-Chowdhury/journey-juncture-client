@@ -10,6 +10,7 @@ import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import AddTouristSpot from './components/AddTouristSpot/AddTouristSpot';
+import TouristSpotDetail from './components/TouristSpotDetail/TouristSpotDetail';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
       {
         path: "/addTouristSpot",
         element: <AddTouristSpot></AddTouristSpot>
+      },
+      {
+        path: "/touristSpotDetail/:id",
+        element: <TouristSpotDetail></TouristSpotDetail>,
+        loader: ({params})=>fetch(`http://localhost:3000/touristSpot/${params.id}`)
       }
     ]
   },
