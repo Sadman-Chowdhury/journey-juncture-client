@@ -1,19 +1,44 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
+import { AuthContext } from "../../providers/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
+    const {signInUser} = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false)
+
+    const navigate = useNavigate()
+
+    const handleLogin = e => {
+        e.preventDefault()
+        const form = new FormData(e.currentTarget)
+        const email = form.get('email')
+        const password = form.get('password')
+        signInUser(email, password)
+        .then(result=>{
+            console.log(result.user)
+            toast.success('Login successful')
+            setTimeout(() => {
+                navigate('/');
+            }, 1000);
+        })
+        .catch(error=>{
+            console.error(error)
+            toast.error('There is no such user. Check email and password')
+        })
+    }
     return (
         <div>
+            <ToastContainer></ToastContainer>
             <div>
             <h2 className="text-5xl my-10 text-center font-extrabold text-orange-500">Login <span className="text-black">!</span></h2>
             <div className='flex flex-col-reverse md:flex-col-reverse lg:flex-row shadow-2xl'>
                 <div className="w-full lg:w-3/5 text-center justify-center">
-                <form className="card-body justify-center mt-10">
+                <form onSubmit={handleLogin} className="card-body justify-center mt-10">
                         <div className="form-control">
                         <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                         </div>
