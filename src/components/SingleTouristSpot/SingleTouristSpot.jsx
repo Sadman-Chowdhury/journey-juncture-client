@@ -15,7 +15,7 @@ const SingleTouristSpot = ({singleTouristSpot}) => {
                     <p>Travel time: <span className="text-orange-500">{travelTime}</span></p>
                     </div>
                     <div className="flex justify-between font-semibold gap-3">
-                    <p>Total visitor per year: <span className="text-orange-500">{averageCost}</span></p>
+                    <p>Visitor per year: <span className="text-orange-500">{totalVisitorPerYear}</span></p>
                     <p>Average cost: <span className="text-orange-500">{averageCost}</span></p>
                     </div>
                     <div className="card-actions justify-center">

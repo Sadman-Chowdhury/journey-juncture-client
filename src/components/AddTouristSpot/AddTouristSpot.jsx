@@ -55,7 +55,7 @@ const AddTouristSpot = () => {
                 <input type="text" placeholder="Short Description" name="shortDescription" className="input input-bordered w-full" required/>
             </div>
             <div className="flex flex-col md:flex-row gap-10">
-                <input type="text" placeholder="Average Cost" name="averageCost" className="input input-bordered w-full" required/>
+                <input type="text" placeholder="Average Cost ($USD)" name="averageCost" className="input input-bordered w-full" required/>
                 <input type="text" placeholder="Seasonality" name="seasonality" className="input input-bordered w-full" required/>
             </div>
             <div className="flex flex-col md:flex-row gap-10">

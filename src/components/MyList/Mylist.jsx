@@ -62,7 +62,7 @@ const Mylist = () => {
                         <tr key={idx} className="text-[18px] font-bold mb-5">
                             <td>{spot.touristSpotName}</td>
                             <td>{spot.countryName}</td>
-                            <td>{spot.averageCost}</td>
+                            <td>${spot.averageCost}</td>
                             <div className="flex flex-col md:flex-row lg:flex-row gap-2">
                             <Link to={`updateTouristSpot/${spot._id}`}><button className="btn bg-orange-400 text-white">Update</button></Link>
                             <Link><button onClick={()=>handleDelete(spot._id)} className="btn bg-red-500 text-white">Delete</button></Link>
