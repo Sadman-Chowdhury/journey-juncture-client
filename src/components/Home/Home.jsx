@@ -2,6 +2,8 @@ import { Link, useLoaderData } from "react-router-dom";
 import './Home.css'
 import TouristSpot from "../TouristSpot/TouristSpot";
 import Swal from "sweetalert2";
+import { FaStar } from "react-icons/fa";
+import { FaStarHalfAlt } from "react-icons/fa";
 
 const Home = () => {
 
@@ -113,7 +115,7 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {
             countryData.map(country=><div key={country._id}>
-                    <Link>
+                    <Link to={`../countrySpots/${country._id}`}>
                     <div className="card h-[500px] bg-base-100 shadow-xl">
                     <figure><img className="h-[400px] w-full" src={country.photo} alt=""/></figure>
                     <div className="card-body">
@@ -125,6 +127,40 @@ const Home = () => {
                 </div>
                 )
         }
+        </div>
+        {/* Reviews */}
+        <h2 className="text-5xl text-center font-bold mb-14 text-orange-500 mt-28">User's <span className="text-black">Review</span></h2>
+        <div className="grid grid-cols-3 gap-5 mb-16">
+            <div className="work-sans border border-orange-200 shadow-2xl rounded-2xl p-10">
+                <div className="space-y-3">
+                    <h1 className="text-[24px] font-bold playfair">Maria_Gonzalez</h1>
+                    <p className="text-[16px] font-medium text-[#131313B3]">Comment: Found JourneyJuncture while planning my Europe trip. Easy to find tours, smooth booking, and great service.</p>
+                    <hr className="border-dashed"/>
+                    <div className="flex gap-6">
+                        <span className="px-5 py-2 bg-orange-100 rounded-[30px] text-[#FFAC33] flex items-center gap-1"><FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalfAlt />4.8</span>
+                    </div>
+                </div>
+            </div>
+            <div className="work-sans border border-orange-200 shadow-2xl rounded-2xl p-10">
+                <div className="space-y-3">
+                    <h1 className="text-[24px] font-bold playfair">Nico_love</h1>
+                    <p className="text-[16px] font-medium text-[#131313B3]">Comment: JourneyJuncture is my go-to for unique tours. Love the off-the-beaten-path options and helpful traveler reviews!</p>
+                    <hr className="border-dashed"/>
+                    <div className="flex gap-6">
+                        <span className="px-5 py-2 bg-orange-100 rounded-[30px] text-[#FFAC33] flex items-center gap-1"><FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalfAlt />4.8</span>
+                    </div>
+                </div>
+            </div>
+            <div className="work-sans border border-orange-200 shadow-2xl rounded-2xl p-10">
+                <div className="space-y-3">
+                    <h1 className="text-[24px] font-bold playfair">Cristiano_messi</h1>
+                    <p className="text-[16px] font-medium text-[#131313B3]">Comment: Been using JourneyJuncture for years. Easy to use, detailed tour descriptions, and endless adventure options.</p>
+                    <hr className="border-dashed"/>
+                    <div className="flex gap-6">
+                        <span className="px-5 py-2 bg-orange-100 rounded-[30px] text-[#FFAC33] flex items-center gap-1"><FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalfAlt />4.8</span>
+                    </div>
+                </div>
+            </div>
         </div>
         </div>
     );

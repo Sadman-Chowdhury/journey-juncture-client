@@ -17,6 +17,7 @@ import Mylist from './components/MyList/Mylist';
 import UpdateTouristSpot from './components/UpdateTouristSpot/UpdateTouristSpot';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import AllTouristSpot from './components/AllTouristSpot/AllTouristSpot';
+import CountrySpots from './components/countrySpots/CountrySpots';
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,17 @@ const router = createBrowserRouter([
         element: <AllTouristSpot></AllTouristSpot>,
         loader: ()=>fetch('http://localhost:3000/touristSpot')
       },
+      {
+        path: "/countrySpots/:id",
+        element: <CountrySpots></CountrySpots>,
+        loader: async ({params}) => {
+          const [touristSpotData, countryData] = await Promise.all([
+            fetch('http://localhost:3000/touristSpot').then(response => response.json()),
+            fetch(`http://localhost:3000/country/${params.id}`).then(response => response.json())
+          ]);
+          return { touristSpotData, countryData };
+        }
+      }
     ]
   },
 ]);

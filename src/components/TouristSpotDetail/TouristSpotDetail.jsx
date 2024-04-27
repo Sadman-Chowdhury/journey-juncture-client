@@ -33,7 +33,7 @@ const TouristSpotDetail = () => {
                     <h2 className="text-xl font-bold">Total visitor per year: <span className="text-orange-500"> {totalVisitorPerYear}</span></h2>
                     <hr className="border-orange-200"/>
                     <div className="">
-                        <h1 className="text-2xl font-bold">Average cost: <span className="font-extrabold border border-orange-500 p-2 rounded-xl">{averageCost}</span></h1>
+                        <h1 className="text-2xl font-bold">Average cost: <span className="font-extrabold border border-orange-500 p-2 rounded-xl">${averageCost}</span></h1>
                     </div>
                 </div>
             </div>
