@@ -4,10 +4,19 @@ import TouristSpot from "../TouristSpot/TouristSpot";
 import Swal from "sweetalert2";
 import { FaStar } from "react-icons/fa";
 import { FaStarHalfAlt } from "react-icons/fa";
+import { Typewriter } from 'react-simple-typewriter'
 
 const Home = () => {
 
     const {touristSpotData, countryData} = useLoaderData()
+
+    const handleType = (count) => {
+        // access word count number
+        console.log(count)}
+    
+      const handleDone = () => {
+        console.log(`Done after loops!`)
+      }
 
     const handleAddCountry = event => {
         event.preventDefault()
@@ -43,7 +52,20 @@ const Home = () => {
 
 
     return (
-        <div className="">
+        <div className="mt-20">
+            <h1 className="text-5xl text-orange-500 font-bold text-center">
+            <Typewriter
+            words={['Explore', 'Europe']}
+            loop={Infinity}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            onLoopDone={handleDone}
+            onType={handleType}
+          />
+            </h1>
             {/* Slider */}
             <div className="carousel w-full h-[400px] md:h-[500px] lg:h-[700px] shadow-2xl rounded-2xl mt-10 border">
             <div id="slide1" className="carousel-item relative w-full">
@@ -130,7 +152,7 @@ const Home = () => {
         </div>
         {/* Reviews */}
         <h2 className="text-5xl text-center font-bold mb-14 text-orange-500 mt-28">User's <span className="text-black">Review</span></h2>
-        <div className="grid grid-cols-3 gap-5 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
             <div className="work-sans border border-orange-200 shadow-2xl rounded-2xl p-10">
                 <div className="space-y-3">
                     <h1 className="text-[24px] font-bold playfair">Maria_Gonzalez</h1>

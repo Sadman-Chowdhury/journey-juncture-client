@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+// import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
 
@@ -39,9 +41,12 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
             {user && user.photoURL ? 
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom" data-tip={user.displayName}>
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                    <Tooltip className="" anchorSelect=".my-img" place="top">
+                        {user.displayName}
+                    </Tooltip>
                     <div className="w-10 rounded-full">
-                            <img src={user.photoURL} alt="" />
+                            <img className="my-img" src={user.photoURL} alt="" />
                             </div>
                 </label>
                          : 
