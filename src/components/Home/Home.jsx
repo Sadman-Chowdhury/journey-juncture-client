@@ -169,7 +169,7 @@ const Home = () => {
                     <p className="text-[16px] font-medium text-[#131313B3]">Comment: JourneyJuncture is my go-to for unique tours. Love the off-the-beaten-path options and helpful traveler reviews!</p>
                     <hr className="border-dashed"/>
                     <div className="flex gap-6">
-                        <span className="px-5 py-2 bg-orange-100 rounded-[30px] text-[#FFAC33] flex items-center gap-1"><FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalfAlt />4.8</span>
+                        <span className="px-5 py-2 bg-orange-100 rounded-[30px] text-[#FFAC33] flex items-center gap-1"><FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalfAlt />4.5</span>
                     </div>
                 </div>
             </div>
@@ -179,7 +179,7 @@ const Home = () => {
                     <p className="text-[16px] font-medium text-[#131313B3]">Comment: Been using JourneyJuncture for years. Easy to use, detailed tour descriptions, and endless adventure options.</p>
                     <hr className="border-dashed"/>
                     <div className="flex gap-6">
-                        <span className="px-5 py-2 bg-orange-100 rounded-[30px] text-[#FFAC33] flex items-center gap-1"><FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalfAlt />4.8</span>
+                        <span className="px-5 py-2 bg-orange-100 rounded-[30px] text-[#FFAC33] flex items-center gap-1"><FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalfAlt />4.9</span>
                     </div>
                 </div>
             </div>
