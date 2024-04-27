@@ -27,7 +27,13 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: ()=>fetch('http://localhost:3000/touristSpot')
+        loader: async () => {
+          const [touristSpotData, countryData] = await Promise.all([
+            fetch('http://localhost:3000/touristSpot').then(response => response.json()),
+            fetch('http://localhost:3000/country').then(response => response.json())
+          ]);
+          return { touristSpotData, countryData };
+        }
       },
       {
         path: "/login",
