@@ -1,10 +1,23 @@
+import { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const AddTouristSpot = () => {
+    const {user} = useContext(AuthContext)
 
     const handleAddTouristSpot = event => {
         event.preventDefault()
         const form = event.target
+        const email = form.email.value;
+        if (email !== user.email) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'You are email does not match. Enter again',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
         const name = form.name.value;
         const touristSpotName = form.touristSpotName.value;
         const countryName = form.countryName.value;
@@ -14,7 +27,6 @@ const AddTouristSpot = () => {
         const seasonality = form.seasonality.value;
         const travelTime = form.travelTime.value;
         const totalVisitorPerYear = form.totalVisitorPerYear.value;
-        const email = form.email.value;
         const photo = form.photo.value;
         const newTouristSpot = {name, touristSpotName, countryName, location, shortDescription, averageCost, seasonality, travelTime, totalVisitorPerYear, email, photo}
         console.log(newTouristSpot)
@@ -35,10 +47,6 @@ const AddTouristSpot = () => {
                 icon: 'success',
                 confirmButtonText: 'Cool'
               })
-            if(data.insertedId){
-                alert('User added successfully')
-                form.reset()
-                }
             })
     }
 
@@ -55,7 +63,7 @@ const AddTouristSpot = () => {
                 <input type="text" placeholder="Short Description" name="shortDescription" className="input input-bordered w-full" required/>
             </div>
             <div className="flex flex-col md:flex-row gap-10">
-                <input type="text" placeholder="Average Cost ($USD)" name="averageCost" className="input input-bordered w-full" required/>
+                <input type="number" placeholder="Average Cost ($USD)" name="averageCost" className="input input-bordered w-full" required/>
                 <input type="text" placeholder="Seasonality" name="seasonality" className="input input-bordered w-full" required/>
             </div>
             <div className="flex flex-col md:flex-row gap-10">

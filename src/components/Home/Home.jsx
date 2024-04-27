@@ -116,7 +116,7 @@ const Home = () => {
             <h1 className="text-5xl font-bold text-orange-500 text-center mt-20 mb-10">Tourist <span className="text-black">Spots</span></h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {
-                    touristSpotData.map(touristSpot=><TouristSpot key={touristSpot._id} touristSpot={touristSpot}></TouristSpot>)
+                    touristSpotData.slice(0,6).map(touristSpot=><TouristSpot key={touristSpot._id} touristSpot={touristSpot}></TouristSpot>)
                 }
             </div>
 
@@ -184,6 +184,83 @@ const Home = () => {
                 </div>
             </div>
         </div>
+        {/* support section */}
+        <div className=" mt-36 bg-gray-100 rounded-2xl">
+                <div className=" p-16">
+                    <h2 className="text-4xl font-bold text-orange-500 text-center mb-4">User Support and Assistance</h2>
+                    <p className="text-lg text-gray-800 text-center mb-12">We're here to help you every step of the way. If you have any questions, concerns, or need assistance, don't hesitate to reach out to our dedicated support team. Here's how you can get in touch:</p>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <li>
+                            <h3 className="text-xl font-semibold text-orange-500 mb-2">Contact Us</h3>
+                            <p className="text-gray-800">For general inquiries or assistance, you can contact our support team via email at <a className="text-blue-500" href="">support@journeyjuncture.com</a> or by filling out the contact form on our website.</p>
+                        </li>
+                        <li>
+                            <h3 className="text-xl font-semibold text-orange-500 mb-2">FAQs</h3>
+                            <p className="text-gray-800">Check out our Frequently Asked Questions (FAQs) for answers to common queries and troubleshooting tips. You might find the solution to your issue right there!</p>
+                        </li>
+                    </ul>
+                </div>
+            {/* FAQ */}
+                <div className="p-16 rounded-xl">
+                <h1 className="text-3xl text-orange-500 font-bold text-center mb-5">FAQs</h1>
+                    <div className="border p-5 rounded-2xl bg-white">
+                        <div className="collapse collapse-arrow">
+                        <input type="radio" name="my-accordion-2" defaultChecked /> 
+                        <div className="collapse-title text-xl font-medium">
+                            How do I create an account?
+                        </div>
+                        <div className="collapse-content"> 
+                            <p>To create an account, simply click on the 'Register' button at the top right corner of the page. Fill in your details and follow the prompts to complete the registration process.</p>
+                        </div>
+                        </div>
+                        <div className="collapse collapse-arrow">
+                        <input type="radio" name="my-accordion-2" /> 
+                        <div className="collapse-title text-xl font-medium">
+                            Can I change my username?
+                        </div>
+                        <div className="collapse-content"> 
+                            <p>Unfortunately, usernames cannot be changed once they've been set. However, you can update your display name, which is visible to other users.</p>
+                        </div>
+                        </div>
+                        <div className="collapse collapse-arrow">
+                        <input type="radio" name="my-accordion-2" /> 
+                        <div className="collapse-title text-xl font-medium">
+                            How do I contact customer support?
+                        </div>
+                        <div className="collapse-content"> 
+                            <p>You can contact our customer support team by emailing support@example.com or by calling our toll-free number at 1-800-123-4567. Our team is available 24/7 to assist you.</p>
+                        </div>
+                        </div>
+                        <div className="collapse collapse-arrow">
+                        <input type="radio" name="my-accordion-2" defaultChecked /> 
+                        <div className="collapse-title text-xl font-medium">
+                            How can I stay safe while traveling?
+                        </div>
+                        <div className="collapse-content"> 
+                            <p>Staying safe while traveling involves several precautions, such as researching your destination's safety, avoiding risky areas, securing your belongings, staying vigilant in crowded places, and following local laws and customs. Additionally, it's wise to keep important documents and valuables secure, maintain situational awareness, and have emergency contacts and resources readily available.</p>
+                        </div>
+                        </div>
+                        <div className="collapse collapse-arrow">
+                        <input type="radio" name="my-accordion-2" defaultChecked /> 
+                        <div className="collapse-title text-xl font-medium">
+                            Is my personal information secure on your website?
+                        </div>
+                        <div className="collapse-content"> 
+                            <p>Yes, we take the security and privacy of your personal information very seriously. Our website employs industry-standard encryption protocols to protect your data during transmission. We also have strict data protection measures in place to safeguard your information against unauthorized access or misuse. You can trust that your personal information is safe with us.</p>
+                        </div>
+                        </div>
+                        <div className="collapse collapse-arrow">
+                        <input type="radio" name="my-accordion-2" defaultChecked /> 
+                        <div className="collapse-title text-xl font-medium">
+                            Do you have a mobile app available?
+                        </div>
+                        <div className="collapse-content"> 
+                            <p>No. The mobile app is still under development.</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
