@@ -31,7 +31,7 @@ const AddTouristSpot = () => {
         const newTouristSpot = {name, touristSpotName, countryName, location, shortDescription, averageCost, seasonality, travelTime, totalVisitorPerYear, email, photo}
         console.log(newTouristSpot)
 
-        fetch('http://localhost:3000/touristSpot', {
+        fetch('https://journey-juncture.vercel.app/touristSpot', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

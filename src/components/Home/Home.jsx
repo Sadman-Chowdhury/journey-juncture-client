@@ -28,7 +28,7 @@ const Home = () => {
     //     const newCountry = {name, shortDescription, photo}
     //     console.log(newCountry)
 
-    //     fetch('http://localhost:3000/country', {
+    //     fetch('https://journey-juncture.vercel.app/country', {
     //         method: 'POST',
     //         headers: {
     //             'content-type': 'application/json'

@@ -48,7 +48,7 @@ const Register = () => {
                 displayName: name,
                 photoURL: photo
             });
-            fetch('http://localhost:3000/user', {
+            fetch('https://journey-juncture.vercel.app/user', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

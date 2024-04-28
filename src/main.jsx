@@ -30,8 +30,8 @@ const router = createBrowserRouter([
         element: <Home></Home>,
         loader: async () => {
           const [touristSpotData, countryData] = await Promise.all([
-            fetch('http://localhost:3000/touristSpot').then(response => response.json()),
-            fetch('http://localhost:3000/country').then(response => response.json())
+            fetch('https://journey-juncture.vercel.app/touristSpot').then(response => response.json()),
+            fetch('https://journey-juncture.vercel.app/country').then(response => response.json())
           ]);
           return { touristSpotData, countryData };
         }
@@ -51,30 +51,30 @@ const router = createBrowserRouter([
       {
         path: "/touristSpotDetail/:id",
         element: <PrivateRoute><TouristSpotDetail></TouristSpotDetail></PrivateRoute>,
-        loader: ({params})=>fetch(`http://localhost:3000/touristSpot/${params.id}`)
+        loader: ({params})=>fetch(`https://journey-juncture.vercel.app/touristSpot/${params.id}`)
       },
       {
         path: "/myList",
         element: <PrivateRoute><Mylist></Mylist></PrivateRoute>,
-        loader: ()=>fetch('http://localhost:3000/touristSpot')
+        loader: ()=>fetch('https://journey-juncture.vercel.app/touristSpot')
       },
       {
         path: "/myList/updateTouristSpot/:id",
         element: <PrivateRoute><UpdateTouristSpot></UpdateTouristSpot></PrivateRoute>,
-        loader: ({params})=>fetch(`http://localhost:3000/touristSpot/${params.id}`)
+        loader: ({params})=>fetch(`https://journey-juncture.vercel.app/touristSpot/${params.id}`)
       },
       {
         path: "/allTouristSpot",
         element: <AllTouristSpot></AllTouristSpot>,
-        loader: ()=>fetch('http://localhost:3000/touristSpot')
+        loader: ()=>fetch('https://journey-juncture.vercel.app/touristSpot')
       },
       {
         path: "/countrySpots/:id",
         element: <CountrySpots></CountrySpots>,
         loader: async ({params}) => {
           const [touristSpotData, countryData] = await Promise.all([
-            fetch('http://localhost:3000/touristSpot').then(response => response.json()),
-            fetch(`http://localhost:3000/country/${params.id}`).then(response => response.json())
+            fetch('https://journey-juncture.vercel.app/touristSpot').then(response => response.json()),
+            fetch(`https://journey-juncture.vercel.app/country/${params.id}`).then(response => response.json())
           ]);
           return { touristSpotData, countryData };
         }

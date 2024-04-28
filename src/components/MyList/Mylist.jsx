@@ -28,7 +28,7 @@ const Mylist = () => {
             },
           }).then((result) => {
             if (result.isConfirmed) {
-              fetch(`http://localhost:3000/touristSpot/${_id}`, {
+              fetch(`https://journey-juncture.vercel.app/touristSpot/${_id}`, {
                     method: 'DELETE'
                     })
                     .then(res=>res.json)
