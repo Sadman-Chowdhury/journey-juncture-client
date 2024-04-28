@@ -2,7 +2,7 @@
 
 Website name: Journey juncture
 
-Live site URl:
+Live site URL: https://journey-juncture.web.app/
 
 Category: Europe
 
