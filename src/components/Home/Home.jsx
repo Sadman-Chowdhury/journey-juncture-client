@@ -1,7 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import './Home.css'
 import TouristSpot from "../TouristSpot/TouristSpot";
-import Swal from "sweetalert2";
 import { FaStar } from "react-icons/fa";
 import { FaStarHalfAlt } from "react-icons/fa";
 import { Typewriter } from 'react-simple-typewriter'
@@ -28,7 +27,7 @@ const Home = () => {
     //     const newCountry = {name, shortDescription, photo}
     //     console.log(newCountry)
 
-    //     fetch('https://journey-juncture.vercel.app/country', {
+    //     fetch('https://journey-juncture-sadman-chowdhurys-projects.vercel.app/country', {
     //         method: 'POST',
     //         headers: {
     //             'content-type': 'application/json'

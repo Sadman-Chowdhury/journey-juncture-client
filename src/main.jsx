@@ -29,13 +29,28 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         loader: async () => {
-          const [touristSpotData, countryData] = await Promise.all([
-            fetch('https://journey-juncture.vercel.app/touristSpot').then(response => response.json()),
-            fetch('https://journey-juncture.vercel.app/country').then(response => response.json())
-          ]);
-          return { touristSpotData, countryData };
+          try {
+            const touristSpotResponse = await fetch('https://journey-juncture-sadman-chowdhurys-projects.vercel.app/touristSpot');
+            if (!touristSpotResponse.ok) {
+              throw new Error('Failed to fetch tourist spot data');
+            }
+            const touristSpotData = await touristSpotResponse.json();
+        
+            const countryResponse = await fetch('https://journey-juncture-sadman-chowdhurys-projects.vercel.app/country');
+            if (!countryResponse.ok) {
+              throw new Error('Failed to fetch country data');
+            }
+            const countryData = await countryResponse.json();
+        
+            return { touristSpotData, countryData };
+          } catch (error) {
+            console.error('Error fetching data:', error);
+            throw error;
+          }
         }
-      },
+        
+        
+              },
       {
         path: "/login",
         element: <Login></Login>
@@ -51,32 +66,45 @@ const router = createBrowserRouter([
       {
         path: "/touristSpotDetail/:id",
         element: <PrivateRoute><TouristSpotDetail></TouristSpotDetail></PrivateRoute>,
-        loader: ({params})=>fetch(`https://journey-juncture.vercel.app/touristSpot/${params.id}`)
+        loader: ({params})=>fetch(`https://journey-juncture-sadman-chowdhurys-projects.vercel.app/touristSpot/${params.id}`)
       },
       {
         path: "/myList",
         element: <PrivateRoute><Mylist></Mylist></PrivateRoute>,
-        loader: ()=>fetch('https://journey-juncture.vercel.app/touristSpot')
+        loader: ()=>fetch('https://journey-juncture-sadman-chowdhurys-projects.vercel.app/touristSpot')
       },
       {
         path: "/myList/updateTouristSpot/:id",
         element: <PrivateRoute><UpdateTouristSpot></UpdateTouristSpot></PrivateRoute>,
-        loader: ({params})=>fetch(`https://journey-juncture.vercel.app/touristSpot/${params.id}`)
+        loader: ({params})=>fetch(`https://journey-juncture-sadman-chowdhurys-projects.vercel.app/touristSpot/${params.id}`)
       },
       {
         path: "/allTouristSpot",
         element: <AllTouristSpot></AllTouristSpot>,
-        loader: ()=>fetch('https://journey-juncture.vercel.app/touristSpot')
+        loader: ()=>fetch('https://journey-juncture-sadman-chowdhurys-projects.vercel.app/touristSpot')
       },
       {
         path: "/countrySpots/:id",
         element: <CountrySpots></CountrySpots>,
         loader: async ({params}) => {
-          const [touristSpotData, countryData] = await Promise.all([
-            fetch('https://journey-juncture.vercel.app/touristSpot').then(response => response.json()),
-            fetch(`https://journey-juncture.vercel.app/country/${params.id}`).then(response => response.json())
-          ]);
-          return { touristSpotData, countryData };
+          try {
+            const touristSpotResponse = await fetch('https://journey-juncture-sadman-chowdhurys-projects.vercel.app/touristSpot');
+            if (!touristSpotResponse.ok) {
+              throw new Error('Failed to fetch tourist spot data');
+            }
+            const touristSpotData = await touristSpotResponse.json();
+        
+            const countryResponse = await fetch(`https://journey-juncture-sadman-chowdhurys-projects.vercel.app/country/${params.id}`);
+            if (!countryResponse.ok) {
+              throw new Error('Failed to fetch country data');
+            }
+            const countryData = await countryResponse.json();
+        
+            return { touristSpotData, countryData };
+          } catch (error) {
+            console.error('Error fetching data:', error);
+            throw error;
+          }
         }
       }
     ]

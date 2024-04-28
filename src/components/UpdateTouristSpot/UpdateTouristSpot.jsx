@@ -21,7 +21,7 @@ const UpdateTouristSpot = () => {
         const updatedTouristSpot = {touristSpotName, countryName, location, shortDescription, averageCost, seasonality, travelTime, totalVisitorPerYear, photo}
         console.log(updatedTouristSpot)
 
-        fetch(`https://journey-juncture.vercel.app/touristSpot/${_id}`, {
+        fetch(`https://journey-juncture-sadman-chowdhurys-projects.vercel.app/touristSpot/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

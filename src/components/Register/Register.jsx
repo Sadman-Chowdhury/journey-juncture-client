@@ -48,7 +48,7 @@ const Register = () => {
                 displayName: name,
                 photoURL: photo
             });
-            fetch('https://journey-juncture.vercel.app/user', {
+            fetch('https://journey-juncture-sadman-chowdhurys-projects.vercel.app/user', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
