@@ -18,37 +18,38 @@ const Home = () => {
         console.log(`Done after loops!`)
       }
 
-    const handleAddCountry = event => {
-        event.preventDefault()
-        const form = event.target
-        const name = form.name.value;
-        const shortDescription = form.shortDescription.value;
-        const photo = form.photo.value;
-        const newCountry = {name, shortDescription, photo}
-        console.log(newCountry)
+    //For adding country in new collection
+    // const handleAddCountry = event => {
+    //     event.preventDefault()
+    //     const form = event.target
+    //     const name = form.name.value;
+    //     const shortDescription = form.shortDescription.value;
+    //     const photo = form.photo.value;
+    //     const newCountry = {name, shortDescription, photo}
+    //     console.log(newCountry)
 
-        fetch('http://localhost:3000/country', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newCountry)
-            })
-            .then(res=>res.json)
-            .then(data=>{
-            console.log(data)
-            Swal.fire({
-                title: 'Success!',
-                text: 'New Tourist Spot added successfully',
-                icon: 'success',
-                confirmButtonText: 'Cool'
-              })
-            if(data.insertedId){
-                alert('User added successfully')
-                form.reset()
-                }
-            })
-    }
+    //     fetch('http://localhost:3000/country', {
+    //         method: 'POST',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(newCountry)
+    //         })
+    //         .then(res=>res.json)
+    //         .then(data=>{
+    //         console.log(data)
+    //         Swal.fire({
+    //             title: 'Success!',
+    //             text: 'New Tourist Spot added successfully',
+    //             icon: 'success',
+    //             confirmButtonText: 'Cool'
+    //           })
+    //         if(data.insertedId){
+    //             alert('User added successfully')
+    //             form.reset()
+    //             }
+    //         })
+    // }
 
 
     return (
@@ -122,6 +123,7 @@ const Home = () => {
 
             {/* Countries */}
             <h2 className="text-5xl text-center font-bold mb-14 text-orange-500 mt-28">Our <span className="text-black">Featured</span> Countries</h2>
+            {/* For adding country in new collection */}
             {/* <form onSubmit={handleAddCountry} className="space-y-10">
             <div className="flex flex-col md:flex-row gap-10">
                 <input type="text" placeholder="Short Description" name="shortDescription" className="input input-bordered w-full" required/>
