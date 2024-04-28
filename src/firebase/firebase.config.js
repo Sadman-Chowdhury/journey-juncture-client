@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAHzHTNHoEvnJy1TNoMCZtzG5XRQDElfFs",
-  authDomain: "journey-juncture.firebaseapp.com",
-  projectId: "journey-juncture",
-  storageBucket: "journey-juncture.appspot.com",
-  messagingSenderId: "568170125684",
-  appId: "1:568170125684:web:07d55e48945911600cb421"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId:import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId:import.meta.env.VITE_messagingSenderId,
+  appId:import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
